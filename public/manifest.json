@@ -1,0 +1,24 @@
+{
+  "name": "Tâm An — Người Bạn Đồng Hành AI",
+  "short_name": "Tâm An",
+  "description": "Phân tích dữ liệu tâm sinh lý đa năm, đặt mục tiêu và đồng hành cùng AI mỗi ngày.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020617",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

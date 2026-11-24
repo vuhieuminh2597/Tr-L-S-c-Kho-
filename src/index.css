@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+
+  /* Ngăn Safari trên iPhone 17 tự động phóng to màn hình khi chạm vào ô nhập liệu */
+  @media (max-width: 768px) {
+    input:not([type='checkbox']):not([type='range']),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Thanh cuộn tinh tế trên máy tính */
+  @media (min-width: 1024px) {
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      @apply bg-slate-400 dark:bg-slate-600;
+    }
+  }
+}
+
+/* Vùng an toàn chuẩn Dynamic Island & Home Indicator của iPhone 17 */
+.pt-safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+.pb-safe-bottom {
+  padding-bottom: max(0.45rem, env(safe-area-inset-bottom));
+}
+
+.main-mobile-pb {
+  padding-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+}
+
+/* Thanh kéo (Range Slider) tối ưu thao tác ngón cái mượt 120Hz trên iOS */
+input[type='range'] {
+  @apply accent-emerald-600 dark:accent-emerald-500 cursor-pointer h-2 rounded-lg;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+}
+
+/* Cuộn ngang mượt mà cho bảng & heatmap trên iOS */
+.ios-scroll-x {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.ios-scroll-x::-webkit-scrollbar {
+  display: none;
+}
